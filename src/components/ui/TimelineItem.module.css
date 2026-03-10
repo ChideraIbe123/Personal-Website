@@ -1,0 +1,121 @@
+.item {
+  position: relative;
+  padding-left: 32px;
+  padding-bottom: var(--space-lg);
+}
+
+.item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-text);
+  border: 2px solid var(--color-bg);
+  box-shadow: 0 0 0 2px var(--color-border-hover);
+}
+
+.item::after {
+  content: '';
+  position: absolute;
+  left: 3.5px;
+  top: 20px;
+  bottom: 0;
+  width: 1px;
+  background: var(--color-border);
+}
+
+.item:last-child::after {
+  display: none;
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+.row {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-top: 2px;
+  border: 1px solid var(--color-border);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.topLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.company {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.dates {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+.role {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: var(--space-xs);
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bullets li {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  padding-left: var(--space-md);
+  position: relative;
+}
+
+.bullets li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  font-family: var(--font-mono);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.coursework {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin-top: 2px;
+}
+
+.courseworkLabel {
+  font-weight: 600;
+  color: var(--color-text);
+}

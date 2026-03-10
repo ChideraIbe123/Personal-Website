@@ -1,0 +1,27 @@
+.layout {
+  position: relative;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.orbBg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+.mainOverlay::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  z-index: -1;
+  pointer-events: none;
+}

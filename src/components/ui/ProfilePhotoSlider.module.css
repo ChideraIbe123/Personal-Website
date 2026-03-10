@@ -1,0 +1,181 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ringOuter {
+  position: relative;
+  width: var(--photo-size);
+  height: var(--photo-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Rotating gradient ring */
+.ringOuter::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  padding: 3px;
+  background: conic-gradient(
+    from 0deg,
+    #ffffff,
+    #666666,
+    #ffffff,
+    #333333,
+    #ffffff
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: spinRing 4s linear infinite;
+}
+
+/* Ambient glow */
+.ringGlow {
+  position: absolute;
+  inset: -24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  animation: pulseGlow 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes spinRing {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.photoContainer {
+  position: relative;
+  width: var(--photo-size);
+  height: var(--photo-size);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.photoTop {
+  z-index: 1;
+}
+
+/* ---- Slider below photo ---- */
+.sliderWrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+  width: calc(var(--photo-size) + 80px);
+}
+
+.sliderLabel {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  width: 34px;
+  text-align: center;
+}
+
+.sliderTrack {
+  position: relative;
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: visible;
+}
+
+/* Gradient fill that follows the thumb */
+.trackFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--pos);
+  border-radius: 3px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+  pointer-events: none;
+  transition: width 0.05s linear;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 6px;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(255, 255, 255, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.5);
+  cursor: grab;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.slider::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.15);
+}
+
+.slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: none;
+  box-shadow:
+    0 0 0 3px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(255, 255, 255, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.5);
+  cursor: grab;
+}
+
+.slider::-moz-range-track {
+  height: 6px;
+  background: transparent;
+  border: none;
+}
