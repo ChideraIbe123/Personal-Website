@@ -49,7 +49,7 @@ export const projects: Project[] = [
     id: 'nba-prop-predictor',
     title: 'NBA Prop Predictor',
     description:
-      'AI-powered NBA player prop prediction system using a multi-agent pipeline that analyzes real-time stats, news, and defensive matchups for OVER/UNDER predictions on DraftKings lines. Supports single bets, multi-leg parlays with correlation detection, and a Streamlit web UI. Runs a self-improving background pipeline that fetches live odds, grades predictions against actual results, and auto-tunes prediction weights every 3 days.',
+      'Multi-agent pipeline that analyzes real-time stats, news, and defensive matchups to predict NBA player prop OVER/UNDERs on DraftKings. Features parlay correlation detection, a Streamlit UI, and a self-improving pipeline that auto-tunes weights every 3 days.',
     tags: ['Python', 'Multi-Agent', 'Streamlit', 'Sports Analytics'],
     githubUrl: 'https://github.com/ChideraIbe123/Sports-Betting',
   },
