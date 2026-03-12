@@ -32,11 +32,11 @@ export default function LiquidScene() {
     []
   );
 
-  useFrame(({ clock, size: frameSize }) => {
+  useFrame(({ clock, size: frameSize, viewport }) => {
     uniforms.uTime.value = clock.getElapsedTime();
     uniforms.uResolution.value.set(
-      frameSize.width * (window.devicePixelRatio || 1),
-      frameSize.height * (window.devicePixelRatio || 1)
+      frameSize.width * viewport.dpr,
+      frameSize.height * viewport.dpr
     );
     uniforms.uMouse.value.lerp(mouse.current, 0.08);
   });

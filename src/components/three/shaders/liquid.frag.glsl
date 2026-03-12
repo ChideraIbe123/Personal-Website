@@ -6,8 +6,8 @@ uniform vec2 uMouse;
 uniform float uSeed;
 
 const float MAX_DIST = 50.0;
-const float HIT_THRESHOLD = 0.003;
-const int MAX_STEPS = 100;
+const float HIT_THRESHOLD = 0.005;
+const int MAX_STEPS = 64;
 const float PI = 3.14159265;
 
 // ── Noise ──────────────────────────────────────────────
@@ -36,7 +36,7 @@ float fbm(vec3 p) {
   float v = 0.0;
   float a = 0.5;
   vec3 shift = vec3(100.0);
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 2; i++) {
     v += a * noise3D(p);
     p = p * 2.0 + shift;
     a *= 0.5;
@@ -70,7 +70,7 @@ float map(vec3 pos) {
   float s7 = fract(sin(uSeed * 54.478) * 43758.5) * 6.28;
 
   // Surface noise displacement
-  float noiseDisp = fbm(pos * 3.0 + t * 0.3) * 0.07;
+  float noiseDisp = noise3D(pos * 3.0 + t * 0.3) * 0.07;
 
   // 7 orbiting blobs -- each with independent random phase
   vec3 p1 = vec3(sin(t * 0.7 + s1) * 2.2, cos(t * 0.5 + s1 * 1.3) * 1.3, sin(t * 0.3 + s1 * 0.7) * 0.6);
@@ -118,8 +118,8 @@ vec3 calcNormal(vec3 p) {
 float calcAO(vec3 p, vec3 n) {
   float occ = 0.0;
   float sca = 1.0;
-  for (int i = 0; i < 5; i++) {
-    float h = 0.01 + 0.12 * float(i) / 4.0;
+  for (int i = 0; i < 3; i++) {
+    float h = 0.01 + 0.12 * float(i) / 2.0;
     float d = map(p + h * n);
     occ += (h - d) * sca;
     sca *= 0.95;
@@ -144,7 +144,7 @@ vec3 iridescence(float cosTheta, float thickness) {
 vec3 envMap(vec3 rd) {
   float t = uTime * 0.15;
   // Subtle moving gradient as fake environment
-  float n = fbm(rd * 2.0 + t);
+  float n = noise3D(rd * 2.0 + t);
   vec3 warm = vec3(0.12, 0.06, 0.02);
   vec3 cool = vec3(0.02, 0.06, 0.14);
   vec3 mid = vec3(0.04, 0.02, 0.08);
@@ -169,7 +169,7 @@ void main() {
   for (int i = 0; i < MAX_STEPS; i++) {
     hitPos = rayOrigin + rayDir * t;
     d = map(hitPos);
-    t += d * 0.7;
+    t += d * 0.85;
     if (d < HIT_THRESHOLD || t > MAX_DIST) break;
   }
 
@@ -207,7 +207,7 @@ void main() {
 
     // ── Iridescence ──
     float cosTheta = dot(viewDir, normal);
-    float thickness = 1.0 + fbm(hitPos * 4.0 + uTime * 0.2) * 0.5;
+    float thickness = 1.0 + noise3D(hitPos * 4.0 + uTime * 0.2) * 0.5;
     vec3 iri = iridescence(cosTheta, thickness);
 
     // ── Compose lighting ──

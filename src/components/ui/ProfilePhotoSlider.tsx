@@ -14,7 +14,7 @@ export default function ProfilePhotoSlider({ size = 170 }: ProfilePhotoSliderPro
         <div className={styles.ringGlow} />
         <div className={styles.photoContainer}>
           <img
-            src="/images/studio_gibli_headshot.png"
+            src="/images/studio_gibli_headshot.jpg"
             alt="Chidera Ibe — Ghibli"
             className={styles.photo}
             draggable={false}

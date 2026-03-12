@@ -20,6 +20,6 @@ export const publications: Publication[] = [
       'The emergence of Large Language Models (LLMs) and their potential as human-like agents has raised questions about their ability to simulate complex social dynamics. This paper explores the social evolution of LLM agents through the lens of Thomas Hobbes\' Social Contract Theory, examining whether these agents can autonomously develop governance structures and social contracts to transition from a "state of nature" to organized society.',
     arxivId: '2406.14373',
     pdfUrl: 'https://arxiv.org/pdf/2406.14373',
-    thumbnail: '/images/artificial-leviathan.png',
+    thumbnail: '/images/artificial-leviathan.jpg',
   },
 ];
