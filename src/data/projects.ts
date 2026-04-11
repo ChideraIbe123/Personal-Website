@@ -46,12 +46,20 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/ChideraIbe123/My-work-for-LLM-Social-Simulation',
   },
   {
-    id: 'nba-prop-predictor',
-    title: 'NBA Prop Predictor',
+    id: 'ocean-simulator',
+    title: 'Ocean Simulator',
     description:
-      'Multi-agent pipeline that analyzes real-time stats, news, and defensive matchups to predict NBA player prop OVER/UNDERs on DraftKings. Features parlay correlation detection, a Streamlit UI, and a self-improving pipeline that auto-tunes weights every 3 days.',
-    tags: ['Python', 'Multi-Agent', 'Streamlit', 'Sports Analytics'],
-    githubUrl: 'https://github.com/ChideraIbe123/Sports-Betting',
+      'Built a high-fidelity underwater simulation environment in NVIDIA Isaac Sim for sonar parameter tuning and marine perception research. Supports dynamic control over ocean conditions — water murkiness, ambient lighting, vegetation density — and integrates a configurable object dataset to generate diverse subsea scenarios for robust sensor modeling.',
+    tags: ['Python', 'Isaac Sim', 'Sonar', 'Simulation'],
+    youtubeId: 'kULBcmRMnvU',
+  },
+  {
+    id: 'illinois-datathon',
+    title: '2nd Place Illinois Datathon',
+    description:
+      'Competed against 180+ teams and 650 participants in the Illinois Statistics Datathon, securing 2nd place overall. Tackled real-world predictive modeling challenges — forecasting customer spending, classifying accounts by risk level, and recommending credit line adjustments — using advanced feature engineering, machine learning, and statistical analysis.',
+    tags: ['Python', 'Machine Learning', 'Data Science', 'Statistics'],
+    youtubeId: 'EJg7HTiyXqs',
   },
   {
     id: 'smart-sales-helper',

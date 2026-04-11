@@ -2,20 +2,19 @@ import type { Experience, Award } from '../types';
 
 export const workExperience: Experience[] = [
   {
-    id: 'capital-one',
-    company: 'Capital One',
-    role: 'ML Intern',
+    id: 'meta-mtia',
+    company: 'Meta',
+    role: 'Software Engineer Intern',
     type: 'work',
-    location: 'Champaign, IL',
-    startDate: 'Sep 2025',
+    location: 'New York, NY',
+    startDate: 'May 2026',
     endDate: 'Present',
     description:
-      'Building in-house version of Replit — a cloud-based development environment for internal engineering teams.',
+      'MTIA Software — PyTorch AI Acceleration. Working on software infrastructure for Meta\u0027s custom AI accelerator hardware.',
     highlights: [
-      'Designing cloud IDE architecture with sandboxed environments',
-      'Integrating ML models for intelligent code suggestions',
+      'Building PyTorch AI acceleration tooling for Meta Training and Inference Accelerator (MTIA)',
     ],
-    logo: '/logos/capitalone.png',
+    logo: '/logos/meta.jpg',
   },
   {
     id: 'uiuc-astral',
@@ -31,6 +30,22 @@ export const workExperience: Experience[] = [
       'Researching assured and trustworthy AI systems',
     ],
     logo: '/logos/uiuc.png',
+  },
+  {
+    id: 'capital-one',
+    company: 'Capital One',
+    role: 'ML Intern',
+    type: 'work',
+    location: 'Champaign, IL',
+    startDate: 'Sep 2025',
+    endDate: 'Mar 2026',
+    description:
+      'Building in-house version of Replit — a cloud-based development environment for internal engineering teams.',
+    highlights: [
+      'Designing cloud IDE architecture with sandboxed environments',
+      'Integrating ML models for intelligent code suggestions',
+    ],
+    logo: '/logos/capitalone.png',
   },
   {
     id: 'meta',
