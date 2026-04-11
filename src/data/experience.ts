@@ -111,18 +111,6 @@ export const workExperience: Experience[] = [
     ],
     logo: '/logos/statefarm.jpg',
   },
-  {
-    id: 'sylvan',
-    company: 'Sylvan Learning',
-    role: 'Coding & Math Instructor',
-    type: 'work',
-    location: 'Lake Zurich, IL',
-    startDate: 'May 2021',
-    endDate: 'Jul 2021',
-    description:
-      'Taught coding fundamentals and mathematics to K-12 students, developing curriculum for Python and Scratch programming.',
-    logo: '/logos/sylvan.png',
-  },
 ];
 
 export const education: Experience[] = [
