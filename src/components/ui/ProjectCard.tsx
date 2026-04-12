@@ -16,13 +16,12 @@ function getGitHubOgImage(githubUrl: string): string | null {
 }
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
-  const ogImage = useMemo(
-    () =>
-      !project.youtubeId && project.githubUrl
-        ? getGitHubOgImage(project.githubUrl)
-        : null,
-    [project.youtubeId, project.githubUrl],
-  );
+  const ogImage = useMemo(() => {
+    if (project.youtubeId) return null;
+    if (project.previewImage) return project.previewImage;
+    if (project.githubUrl) return getGitHubOgImage(project.githubUrl);
+    return null;
+  }, [project.youtubeId, project.previewImage, project.githubUrl]);
 
   return (
     <motion.article

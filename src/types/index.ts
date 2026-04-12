@@ -6,6 +6,7 @@ export interface Project {
   youtubeId?: string;
   githubUrl?: string;
   liveUrl?: string;
+  previewImage?: string;
 }
 
 export interface Publication {

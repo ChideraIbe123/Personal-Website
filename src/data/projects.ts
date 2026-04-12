@@ -68,5 +68,6 @@ export const projects: Project[] = [
       'Developed a conversational AI system that enhances customer interactions by generating personalized product recommendations in real time. Built with React and Flask, integrating audio transcription, sentiment analysis, BART for summarization, FuzzyWuzzy for keyword matching, and Llama 3 for recommendation refinement.',
     tags: ['React', 'Flask', 'Llama 3', 'NLP'],
     githubUrl: 'https://github.com/ChideraIbe123/Smart-Sales-Helper',
+    previewImage: '/projects/smart-sales-helper.png',
   },
 ];
